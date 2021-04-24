@@ -9,6 +9,8 @@ import {
   Button,
 } from "react-native";
 
+import defaultSyles from "../config/styles";
+
 function WelcomeScreen(s) {
   return (
     <ImageBackground
@@ -67,10 +69,9 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 30,
-    color: "#f28f18",
+    color: defaultSyles.colors.orange,
     fontWeight: "bold",
     marginTop: 10,
-    fontFamily: "Roboto",
   },
   text2: {
     padding: 30,
@@ -78,10 +79,9 @@ const styles = StyleSheet.create({
   },
   text3: {
     fontSize: 20,
-    color: "#e0891f",
+    color: defaultSyles.colors.orange,
     fontWeight: "bold",
     marginTop: 0,
-    fontFamily: "Roboto",
     marginBottom: 30,
   },
 });

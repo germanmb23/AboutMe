@@ -2,7 +2,7 @@ import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import Screen from "./app/components/Screen";
-import WelcomeScreen from "./app/screens/WelcomeScreen";
+import MainScreen from "./app/screens/MainScreen";
 
 export default function App() {
   return (
@@ -11,7 +11,7 @@ export default function App() {
     //   <StatusBar style="auto" />
     // </View>
 
-    <WelcomeScreen />
+    <MainScreen />
   );
 }
 
