@@ -7,6 +7,5 @@ export default {
     color: "#f28f18",
     fontWeight: "bold",
     marginTop: 10,
-    fontFamily: "Roboto",
   },
 };

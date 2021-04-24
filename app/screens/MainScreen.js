@@ -10,6 +10,7 @@ import {
 } from "react-native";
 
 import defaultSyles from "../config/styles";
+import { AboutMeInfo, name } from "../constants";
 
 function WelcomeScreen(s) {
   return (
@@ -20,19 +21,12 @@ function WelcomeScreen(s) {
     >
       <View style={styles.container}>
         <Image style={styles.photo} source={require("../../assets/me.png")} />
-        <Text style={styles.text}>German Moreira </Text>
+        <Text style={styles.text}>{name} </Text>
         <Text style={styles.text3}>Developer </Text>
 
         <Text style={styles.text}>About me </Text>
         <View style={styles.texcContent}>
-          <Text style={styles.text2}>
-            mess About mess About mess About mess About mess About mess About
-            mess About mess About mess About mess About mess About mess About
-            mess About mess About mess About mess About mess About mess About
-            mess About mess About mess About mess About mess About mess About
-            mess About mess About mess About mess About mess About mess About
-            mess About mess About mess About mess About mess About mess About
-          </Text>
+          <Text style={styles.infoText}>{AboutMeInfo}</Text>
         </View>
         <View style={{ marginTop: 50 }}>
           <Button title="Contact me"></Button>
@@ -47,11 +41,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     height: "100%",
-  },
-  photoContainer: {
-    height: 160,
-    width: 160,
-    marginTop: 100,
   },
   photo: {
     marginTop: 150,
@@ -73,7 +62,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     marginTop: 10,
   },
-  text2: {
+  infoText: {
     padding: 30,
     color: "black",
   },
