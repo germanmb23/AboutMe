@@ -1,7 +1,7 @@
 import React from "react";
 import { View, StyleSheet } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
-import WelcomeScreen from "../screens/MainScreen";
+import MainScreen from "../screens/MainScreen";
 import ContactMeScreen from "../screens/ContactMeScreen";
 
 function AppNavigation(props) {
@@ -9,8 +9,16 @@ function AppNavigation(props) {
 
   return (
     <Stack.Navigator>
-      <Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />
-      <Stack.Screen name="ContactMeScreen" component={ContactMeScreen} />
+      <Stack.Screen
+        name="MainScreen"
+        component={MainScreen}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="ContactMeScreen"
+        component={ContactMeScreen}
+        options={{ headerShown: false }}
+      />
     </Stack.Navigator>
   );
 }

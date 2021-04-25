@@ -21,7 +21,7 @@ const validationSchema = Yup.object().shape({
   message: Yup.string().required().label("Message"),
 });
 
-function ContactMeScreen(props) {
+function ContactMeScreen({ navigation }) {
   return (
     <Background>
       <View style={styles.container}>
@@ -49,8 +49,18 @@ function ContactMeScreen(props) {
               height={300}
               style={{ textAlignVertical: "top" }}
             ></AppFormField>
-            <View style={{ marginTop: 20, width: 170 }}>
-              <Button title="Send message"></Button>
+
+            <View style={styles.buttonsContainer}>
+              <View style={{ width: "40%" }}>
+                <Button
+                  borderRadius={30}
+                  title="Back"
+                  onPress={() => navigation.navigate("MainScreen")}
+                ></Button>
+              </View>
+              <View style={{ width: "40%" }}>
+                <Button title="Send Message"></Button>
+              </View>
             </View>
           </>
         </Formik>
@@ -63,6 +73,15 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
+  },
+  buttonsContainer: {
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "space-evenly",
+    alignItems: "flex-end",
+    marginBottom: 100,
+    width: "90%",
+    height: "10%",
   },
 });
 

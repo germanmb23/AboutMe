@@ -7,6 +7,7 @@ import {
   Text,
   Button,
 } from "react-native";
+import { TouchableOpacity } from "react-native";
 import PersonalPhoto from "../components/PersonalPhoto";
 
 import defaultSyles from "../config/styles";
@@ -25,11 +26,17 @@ function WelcomeScreen({ navigation }) {
         <View style={styles.texContent}>
           <Text style={styles.infoText}>{AboutMeInfo}</Text>
         </View>
-        <View style={{ marginTop: 50 }}>
-          <Button
-            title="Contact me"
-            onPress={() => navigation.navigate("ContactMeScreen")}
-          ></Button>
+        <View style={styles.buttonsContainer}>
+          <View style={{ width: "40%" }}>
+            <Button
+              borderRadius={30}
+              title="Contact me"
+              onPress={() => navigation.navigate("ContactMeScreen")}
+            ></Button>
+          </View>
+          <View style={{ width: "40%" }}>
+            <Button title="Download Resume"></Button>
+          </View>
         </View>
       </View>
     </Background>
@@ -37,6 +44,15 @@ function WelcomeScreen({ navigation }) {
 }
 
 const styles = StyleSheet.create({
+  buttonsContainer: {
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "space-evenly",
+    alignItems: "flex-end",
+    marginBottom: 100,
+    width: "90%",
+    height: "10%",
+  },
   container: {
     flex: 1,
     alignItems: "center",
