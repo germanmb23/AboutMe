@@ -2,6 +2,8 @@ import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import Screen from "./app/components/Screen";
+import Background from "./app/screens/Background";
+import ContactMeScreen from "./app/screens/ContactMeScreen";
 import MainScreen from "./app/screens/MainScreen";
 
 export default function App() {
@@ -11,7 +13,7 @@ export default function App() {
     //   <StatusBar style="auto" />
     // </View>
 
-    <MainScreen />
+    <ContactMeScreen />
   );
 }
 

@@ -4,35 +4,32 @@ import {
   StyleSheet,
   Image,
   SafeAreaView,
-  ImageBackground,
   Text,
   Button,
 } from "react-native";
+import PersonalPhoto from "../components/PersonalPhoto";
 
 import defaultSyles from "../config/styles";
 import { AboutMeInfo, name } from "../constants";
+import Background from "./Background";
 
 function WelcomeScreen(s) {
   return (
-    <ImageBackground
-      style={{ flex: 1 }}
-      blurRadius={1}
-      source={require("../../assets/background.png")}
-    >
+    <Background>
       <View style={styles.container}>
-        <Image style={styles.photo} source={require("../../assets/me.png")} />
+        <PersonalPhoto />
         <Text style={styles.text}>{name} </Text>
         <Text style={styles.text3}>Developer </Text>
 
         <Text style={styles.text}>About me </Text>
-        <View style={styles.texcContent}>
+        <View style={styles.texContent}>
           <Text style={styles.infoText}>{AboutMeInfo}</Text>
         </View>
         <View style={{ marginTop: 50 }}>
           <Button title="Contact me"></Button>
         </View>
       </View>
-    </ImageBackground>
+    </Background>
   );
 }
 
@@ -42,17 +39,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
     height: "100%",
   },
-  photo: {
-    marginTop: 150,
-    alignItems: "center",
-    width: 150,
-    height: 150,
-    borderRadius: 100,
-  },
-  texcContent: {
+
+  texContent: {
     marginTop: 10,
-    backgroundColor: "rgb(222, 222, 222)",
-    width: "70%",
+    backgroundColor: defaultSyles.colors.grey,
+    width: "80%",
     alignContent: "center",
     borderRadius: 20,
   },
