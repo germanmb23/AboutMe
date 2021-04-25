@@ -7,6 +7,8 @@ import colors from "../config/colors";
 import PersonalPhoto from "../components/PersonalPhoto";
 import * as Yup from "yup";
 
+import { sendMail } from "../api/sendMessage";
+
 const validationSchema = Yup.object().shape({
   mail: Yup.string().required().min(1).label("mail").email(),
   confirmMail: Yup.string()
@@ -22,47 +24,55 @@ const validationSchema = Yup.object().shape({
 });
 
 function ContactMeScreen({ navigation }) {
+  const handleSubmit = (values) => {
+    sendMail(values);
+  };
   return (
     <Background>
       <View style={styles.container}>
         <PersonalPhoto />
         <Formik
-          initialValues={{ mail: "", mailValidation: "", bodyMail: "" }}
+          initialValues={{ mail: "", confirmMail: "", mailBody: "" }}
           validationSchema={validationSchema}
         >
-          <>
-            <AppFormField
-              name="mail"
-              placeholder="Mail"
-              width={"80%"}
-            ></AppFormField>
-            <AppFormField
-              name="confirmMail"
-              placeholder="Confirm mail"
-              width={"80%"}
-            ></AppFormField>
-            <AppFormField
-              numberOfLines={17}
-              name="message"
-              placeholder="Message"
-              width={"80%"}
-              height={300}
-              style={{ textAlignVertical: "top" }}
-            ></AppFormField>
+          {({ values }) => (
+            <>
+              <AppFormField
+                name="mail"
+                placeholder="Mail"
+                width={"80%"}
+              ></AppFormField>
+              <AppFormField
+                name="confirmMail"
+                placeholder="Confirm mail"
+                width={"80%"}
+              ></AppFormField>
+              <AppFormField
+                numberOfLines={17}
+                name="mailBody"
+                placeholder="Message"
+                width={"80%"}
+                height={300}
+                style={{ textAlignVertical: "top" }}
+              ></AppFormField>
 
-            <View style={styles.buttonsContainer}>
-              <View style={{ width: "40%" }}>
-                <Button
-                  borderRadius={30}
-                  title="Back"
-                  onPress={() => navigation.navigate("MainScreen")}
-                ></Button>
+              <View style={styles.buttonsContainer}>
+                <View style={{ width: "40%" }}>
+                  <Button
+                    borderRadius={30}
+                    title="Back"
+                    onPress={() => navigation.navigate("MainScreen")}
+                  ></Button>
+                </View>
+                <View style={{ width: "40%" }}>
+                  <Button
+                    title="Send Message"
+                    onPress={() => handleSubmit(values)}
+                  ></Button>
+                </View>
               </View>
-              <View style={{ width: "40%" }}>
-                <Button title="Send Message"></Button>
-              </View>
-            </View>
-          </>
+            </>
+          )}
         </Formik>
       </View>
     </Background>

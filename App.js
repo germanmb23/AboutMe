@@ -12,7 +12,20 @@ import WelcomeScreen from "./app/screens/WelcomeScreen";
 import AppNavigation from "./app/navigation/AppNavigation";
 const Stack = createStackNavigator();
 
+import useApi from "./app/hooks/useApi";
+
+const axios = require("axios").default;
+
 export default function App() {
+  // {
+  //   console.log(1);
+  //   const { data } = axios.post(`https://aboutme-backend.herokuapp.com/`, {
+  //     mail: "asdasd",
+  //     mailBody: "asdasdasdasd",
+  //   });
+  //   console.log(2);
+  // }s
+
   return (
     <NavigationContainer>
       <AppNavigation />

@@ -15,7 +15,6 @@ function AppFormField({ name, width, ...otherPops }) {
   return (
     <>
       <TextInput
-        multil
         onBlur={() => setFieldTouched(name)}
         onChangeText={(text) => setFieldValue(name, text)}
         value={values[name]}
