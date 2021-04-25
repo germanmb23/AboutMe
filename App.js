@@ -8,18 +8,12 @@ import Screen from "./app/components/Screen";
 import Background from "./app/screens/Background";
 import ContactMeScreen from "./app/screens/ContactMeScreen";
 import MainScreen from "./app/screens/MainScreen";
-import WelcomeScreen from "./app/screens/MainScreen";
+import WelcomeScreen from "./app/screens/WelcomeScreen";
 import AppNavigation from "./app/navigation/AppNavigation";
 const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    // <View style={styles.container}>
-    //   <Text>Open up App.js to start working on your app!</Text>
-    //   <StatusBar style="auto" />
-    // </View>
-    // <WelcomeScreen />
-    //<ContactMeScreen/>
     <NavigationContainer>
       <AppNavigation />
     </NavigationContainer>

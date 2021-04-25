@@ -1,11 +1,11 @@
 import React from "react";
 import { View, StyleSheet, ImageBackground } from "react-native";
 
-function Background({ children }) {
+function Background({ children, style }) {
   return (
     <View style={styles.container}>
       <ImageBackground
-        style={{ flex: 1 }}
+        style={[{ flex: 1 }, style]}
         blurRadius={1}
         source={require("../../assets/background.png")}
       >
@@ -16,7 +16,7 @@ function Background({ children }) {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, height: "100%" },
+  container: { flex: 1 },
 });
 
 export default Background;
