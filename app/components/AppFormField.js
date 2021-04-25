@@ -12,7 +12,6 @@ function AppFormField({ name, width, ...otherPops }) {
     touched,
     values,
   } = useFormikContext();
-
   return (
     <>
       <TextInput

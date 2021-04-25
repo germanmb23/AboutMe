@@ -13,7 +13,7 @@ import defaultSyles from "../config/styles";
 import { AboutMeInfo, name } from "../constants";
 import Background from "./Background";
 
-function WelcomeScreen(s) {
+function WelcomeScreen({ navigation }) {
   return (
     <Background>
       <View style={styles.container}>
@@ -26,7 +26,10 @@ function WelcomeScreen(s) {
           <Text style={styles.infoText}>{AboutMeInfo}</Text>
         </View>
         <View style={{ marginTop: 50 }}>
-          <Button title="Contact me"></Button>
+          <Button
+            title="Contact me"
+            onPress={() => navigation.navigate("ContactMeScreen")}
+          ></Button>
         </View>
       </View>
     </Background>
