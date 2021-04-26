@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, StyleSheet, Text, TextInput, Button } from "react-native";
 import Background from "./Background";
 import { Formik } from "formik";
@@ -8,6 +8,7 @@ import PersonalPhoto from "../components/PersonalPhoto";
 import * as Yup from "yup";
 
 import { sendMail } from "../api/sendMessage";
+import UploadScreen from "../components/UploadScreen";
 
 const validationSchema = Yup.object().shape({
   mail: Yup.string().required().min(1).label("mail").email(),
@@ -24,18 +25,34 @@ const validationSchema = Yup.object().shape({
 });
 
 function ContactMeScreen({ navigation }) {
-  const handleSubmit = (values) => {
-    sendMail(values);
+  const [uploadVisible, setUploadVisible] = useState(false);
+
+  const handleSubmit = async (values, resetForm) => {
+    setUploadVisible(true);
+
+    const result = await sendMail(values);
+    //    if (result) setUploadVisible(false);
+    resetForm();
   };
   return (
     <Background>
+      <UploadScreen
+        onDone={() => setUploadVisible(false)}
+        // progress={progress}
+        source={require("../animations/14422-done.json")}
+        visible={uploadVisible}
+      />
       <View style={styles.container}>
         <PersonalPhoto />
         <Formik
-          initialValues={{ mail: "", confirmMail: "", mailBody: "" }}
+          initialValues={{
+            mail: "a@mail.com",
+            confirmMail: "a@mail.com",
+            mailBody: "",
+          }}
           validationSchema={validationSchema}
         >
-          {({ values }) => (
+          {({ values, resetForm }) => (
             <>
               <AppFormField
                 name="mail"
@@ -67,7 +84,7 @@ function ContactMeScreen({ navigation }) {
                 <View style={{ width: "40%" }}>
                   <Button
                     title="Send Message"
-                    onPress={() => handleSubmit(values)}
+                    onPress={() => handleSubmit(values, resetForm)}
                   ></Button>
                 </View>
               </View>
