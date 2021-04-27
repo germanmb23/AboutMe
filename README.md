@@ -13,9 +13,10 @@
 ## Usage
 Install dependencies
 
-```bash npm install```
+```npm install```
 
 Run on a Android or iOS virtual machine, or Expo App
+
 ```npm start```
 
 ## Alternative 1 - With expo app (Android and iOS)
