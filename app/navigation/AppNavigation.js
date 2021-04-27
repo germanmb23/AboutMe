@@ -4,6 +4,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import MainScreen from "../screens/MainScreen";
 import ContactMeScreen from "../screens/ContactMeScreen";
 import WelcomeScreen from "../screens/WelcomeScreen";
+import PDFreaderComponent from "../components/PDFReaderComponent";
 
 function AppNavigation(props) {
   const Stack = createStackNavigator();
@@ -23,6 +24,11 @@ function AppNavigation(props) {
       <Stack.Screen
         name="ContactMeScreen"
         component={ContactMeScreen}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="PDFReader"
+        component={PDFreaderComponent}
         options={{ headerShown: false }}
       />
     </Stack.Navigator>

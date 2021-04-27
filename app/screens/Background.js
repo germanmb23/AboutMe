@@ -1,11 +1,17 @@
 import React from "react";
-import { View, StyleSheet, ImageBackground } from "react-native";
+import { View, StyleSheet, ImageBackground, Dimensions } from "react-native";
 
 function Background({ children, style }) {
   return (
     <View style={styles.container}>
       <ImageBackground
-        style={[{ flex: 1 }, style]}
+        style={[
+          {
+            height: Dimensions.get("window").height + 100,
+            position: "relative",
+          },
+          style,
+        ]}
         blurRadius={1}
         source={require("../../assets/background.png")}
       >
@@ -16,7 +22,10 @@ function Background({ children, style }) {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1 },
+  container: {
+    flex: 1,
+    position: "relative",
+  },
 });
 
 export default Background;

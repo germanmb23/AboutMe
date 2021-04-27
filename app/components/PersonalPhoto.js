@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet, Image } from "react-native";
+import { StyleSheet, Image } from "react-native";
 
 function PersonalPhoto({ style }) {
   return (
@@ -16,8 +16,8 @@ const styles = StyleSheet.create({
     width: 150,
     height: 150,
     borderRadius: 100,
-    marginTop: 110,
-    marginBottom: 30,
+    marginTop: Platform.OS === "android" ? "35%" : "15%",
+    marginBottom: "2%",
   },
 });
 

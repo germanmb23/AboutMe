@@ -1,14 +1,15 @@
 import React, { useState } from "react";
-import { View, StyleSheet, Text, TextInput, Button } from "react-native";
+import { View, StyleSheet } from "react-native";
 import Background from "./Background";
 import { Formik } from "formik";
 import AppFormField from "../components/AppFormField";
-import colors from "../config/colors";
 import PersonalPhoto from "../components/PersonalPhoto";
 import * as Yup from "yup";
 
 import { sendMail } from "../api/sendMessage";
 import UploadScreen from "../components/UploadScreen";
+import AppButton from "../components/AppButton";
+import defaultStyles from "../config/styles";
 
 const validationSchema = Yup.object().shape({
   mail: Yup.string().required().min(1).label("mail").email(),
@@ -31,23 +32,24 @@ function ContactMeScreen({ navigation }) {
     setUploadVisible(true);
 
     const result = await sendMail(values);
-    //    if (result) setUploadVisible(false);
     resetForm();
   };
   return (
     <Background>
       <UploadScreen
+        Screen
         onDone={() => setUploadVisible(false)}
-        // progress={progress}
         source={require("../animations/14422-done.json")}
         visible={uploadVisible}
       />
+
       <View style={styles.container}>
         <PersonalPhoto />
+
         <Formik
           initialValues={{
-            mail: "a@mail.com",
-            confirmMail: "a@mail.com",
+            mail: "",
+            confirmMail: "",
             mailBody: "",
           }}
           validationSchema={validationSchema}
@@ -55,26 +57,38 @@ function ContactMeScreen({ navigation }) {
           {({ values, resetForm }) => (
             <>
               <AppFormField
+                numberOfLines={1}
                 name="mail"
                 placeholder="Mail"
                 width={"80%"}
               ></AppFormField>
               <AppFormField
+                numberOfLines={1}
                 name="confirmMail"
                 placeholder="Confirm mail"
                 width={"80%"}
               ></AppFormField>
               <AppFormField
-                numberOfLines={17}
+                numberOfLines={10}
                 name="mailBody"
                 placeholder="Message"
                 width={"80%"}
-                height={300}
-                style={{ textAlignVertical: "top" }}
+                height={"25%"}
               ></AppFormField>
 
-              <View style={styles.buttonsContainer}>
-                <View style={{ width: "40%" }}>
+              <View style={defaultStyles.buttonsContainer}>
+                <AppButton
+                  style={{ width: "45%" }}
+                  title="Back"
+                  onPress={() => navigation.navigate("MainScreen")}
+                ></AppButton>
+
+                <AppButton
+                  style={{ width: "45%" }}
+                  title="Send Message"
+                  onPress={() => handleSubmit(values, resetForm)}
+                ></AppButton>
+                {/* <View style={{ width: "40%" }}>
                   <Button
                     borderRadius={30}
                     title="Back"
@@ -86,7 +100,7 @@ function ContactMeScreen({ navigation }) {
                     title="Send Message"
                     onPress={() => handleSubmit(values, resetForm)}
                   ></Button>
-                </View>
+                </View>      */}
               </View>
             </>
           )}
@@ -100,15 +114,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
-  },
-  buttonsContainer: {
-    flex: 1,
-    flexDirection: "row",
-    justifyContent: "space-evenly",
-    alignItems: "flex-end",
-    marginBottom: 100,
-    width: "90%",
-    height: "10%",
   },
 });
 

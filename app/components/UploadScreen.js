@@ -1,15 +1,12 @@
 import React from "react";
-import { View, StyleSheet, Modal } from "react-native";
-import AppText from "../components/AppText";
-import colors from "../config/colors";
+import { View, StyleSheet, Modal, StatusBar } from "react-native";
 import LottieView from "lottie-react-native";
-import DoneAnimation from "./DoneAnimation";
 import Background from "../screens/Background";
 
 function UploadScreen({ onDone, visible = false, source, ...otherProps }) {
   return (
-    <Modal visible={visible}>
-      <Background>
+    <Modal visible={visible} transparent={true}>
+      <Background style={{ marginTop: -StatusBar.currentHeight - 7 }}>
         <View style={styles.container}>
           <LottieView
             autoPlay
@@ -31,8 +28,7 @@ const styles = StyleSheet.create({
   container: {
     alignItems: "center",
     flex: 1,
-
-    justifyContent: "center",
+    marginTop: "60%",
   },
   animations: { width: "60%" },
 });

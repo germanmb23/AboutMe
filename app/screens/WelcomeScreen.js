@@ -1,7 +1,8 @@
 import React from "react";
-import { View, StyleSheet, Button } from "react-native";
+import { View, StyleSheet } from "react-native";
 import ProgrammerAnimation from "../components/ProgrammerAnimation";
 import Background from "./Background";
+import AppButton from "../components/AppButton";
 
 function WelcomeScreen({ navigation }) {
   return (
@@ -13,10 +14,10 @@ function WelcomeScreen({ navigation }) {
           marginTop: 40,
         }}
       >
-        <Button
+        <AppButton
           title="Know Me"
           onPress={() => navigation.navigate("MainScreen")}
-        ></Button>
+        ></AppButton>
       </View>
     </Background>
   );

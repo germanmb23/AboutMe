@@ -6,7 +6,6 @@ function DoneAnimation({ style }, onDone) {
   return (
     <LottieView
       autoPlay
-      speed={0.7}
       loop={false}
       onAnimationFinish={onDone}
       style={[{ width: "100%" }, style]}

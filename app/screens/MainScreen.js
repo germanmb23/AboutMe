@@ -1,18 +1,12 @@
 import React from "react";
-import {
-  View,
-  StyleSheet,
-  Image,
-  SafeAreaView,
-  Text,
-  Button,
-} from "react-native";
-import { TouchableOpacity } from "react-native";
+import { View, StyleSheet, Text } from "react-native";
 import PersonalPhoto from "../components/PersonalPhoto";
 
 import defaultSyles from "../config/styles";
 import { AboutMeInfo, name } from "../constants";
 import Background from "./Background";
+import AppButton from "../components/AppButton";
+import defaultStyles from "../config/styles";
 
 function WelcomeScreen({ navigation }) {
   return (
@@ -22,21 +16,22 @@ function WelcomeScreen({ navigation }) {
         <Text style={styles.text}>{name} </Text>
         <Text style={styles.text3}>Developer </Text>
 
-        <Text style={styles.text}>About me </Text>
+        <Text style={[styles.text, { marginTop: 0 }]}>About me </Text>
         <View style={styles.texContent}>
           <Text style={styles.infoText}>{AboutMeInfo}</Text>
         </View>
-        <View style={styles.buttonsContainer}>
-          <View style={{ width: "40%" }}>
-            <Button
-              borderRadius={30}
-              title="Contact me"
-              onPress={() => navigation.navigate("ContactMeScreen")}
-            ></Button>
-          </View>
-          <View style={{ width: "40%" }}>
-            <Button title="Download Resume"></Button>
-          </View>
+        <View style={defaultStyles.buttonsContainer}>
+          <AppButton
+            style={{ width: "45%" }}
+            title="Contact me"
+            onPress={() => navigation.navigate("ContactMeScreen")}
+          ></AppButton>
+
+          <AppButton
+            style={{ width: "45%" }}
+            title="My Resume"
+            onPress={() => navigation.navigate("PDFReader")}
+          ></AppButton>
         </View>
       </View>
     </Background>
@@ -44,15 +39,6 @@ function WelcomeScreen({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-  buttonsContainer: {
-    flex: 1,
-    flexDirection: "row",
-    justifyContent: "space-evenly",
-    alignItems: "flex-end",
-    marginBottom: 100,
-    width: "90%",
-    height: "10%",
-  },
   container: {
     flex: 1,
     alignItems: "center",
@@ -70,7 +56,7 @@ const styles = StyleSheet.create({
     fontSize: 30,
     color: defaultSyles.colors.orange,
     fontWeight: "bold",
-    marginTop: 10,
+    marginTop: "2%",
   },
   infoText: {
     padding: 30,
@@ -81,7 +67,7 @@ const styles = StyleSheet.create({
     color: defaultSyles.colors.orange,
     fontWeight: "bold",
     marginTop: 0,
-    marginBottom: 30,
+    marginBottom: "2%",
   },
 });
 
