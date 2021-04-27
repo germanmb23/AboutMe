@@ -10,12 +10,8 @@ export const sendMail = ({ mail, mailBody }) => {
     })
     .then(
       (response) => {
-        console.log(response.status);
         if (response.status == 200) return true;
       },
-      (error) => {
-        console.log(error);
-      }
+      (error) => {}
     );
-  console.log(data);
 };

@@ -1,9 +1,5 @@
-export const AboutMeInfo = `mess About mess About mess About mess About mess About mess About
-mess About mess About mess About mess About mess About mess About
-mess About mess About mess About mess About mess About mess About
-mess About mess About mess About mess About mess About mess About
-mess About mess About mess About mess About mess About mess About
-mess About mess About mess About mess About mess About mess About`;
+export const AboutMeInfo = `I'm a software developer, focused in frontend with some experience in back end. I am also sutying computer engineering in "Facultad de Ingenieria, UDELAR".
+I'm highly interested in the frontend and the user experience and design in general. I'm a natural challenge lover, I don't give up that easy.`;
 
 export const name = "German Moreira";
 
