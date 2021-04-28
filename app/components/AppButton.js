@@ -1,5 +1,5 @@
 import React from "react";
-import { TouchableOpacity, StyleSheet, Text } from "react-native";
+import { TouchableOpacity, StyleSheet, Text, Dimensions } from "react-native";
 
 function AppButton({ title, style, color = "black", onPress }) {
   return (
@@ -26,12 +26,10 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     alignItems: "center",
     justifyContent: "center",
-    padding: 10,
-    marginVertical: 10,
   },
   buttonText: {
     color: "white",
-    fontSize: 15,
+    fontSize: Dimensions.get("window").width * 0.03,
     textTransform: "uppercase",
   },
 });

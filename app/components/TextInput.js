@@ -1,11 +1,11 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Dimensions } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import defaultStyles from "../config/styles";
 import { TextInput } from "react-native-gesture-handler";
 
-function AppTextInput({ icon, width = "100%", ...otherProps }) {
+function AppTextInput({ icon, width = "100%", multiline, ...otherProps }) {
   return (
     <View style={[styles.container, { width }]}>
       {icon && (
@@ -18,9 +18,12 @@ function AppTextInput({ icon, width = "100%", ...otherProps }) {
       )}
       <TextInput
         placeholderTextColor={"#616161"}
-        style={defaultStyles.text}
+        style={{
+          fontSize: Dimensions.get("window").width * 0.03,
+          paddingLeft: 10,
+        }}
         {...otherProps}
-        multiline={true}
+        multiline={multiline}
       />
     </View>
   );
@@ -31,8 +34,7 @@ const styles = StyleSheet.create({
     backgroundColor: defaultStyles.colors.grey,
     borderRadius: 25,
     flexDirection: "column",
-    padding: 15,
-    marginVertical: 10,
+    padding: Dimensions.get("window").width * 0.01,
   },
   icon: {
     marginRight: 10,

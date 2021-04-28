@@ -13,11 +13,9 @@ function PersonalPhoto({ style }) {
 const styles = StyleSheet.create({
   photo: {
     alignItems: "center",
-    width: 150,
-    height: 150,
     borderRadius: 100,
-    marginTop: Platform.OS === "android" ? "35%" : "15%",
     marginBottom: "2%",
+    aspectRatio: 1,
   },
 });
 

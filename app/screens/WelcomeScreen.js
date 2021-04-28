@@ -8,23 +8,18 @@ function WelcomeScreen({ navigation }) {
   return (
     <Background style={styles.container}>
       <ProgrammerAnimation />
-      <View
-        style={{
-          width: "40%",
-          marginTop: 40,
-        }}
-      >
-        <AppButton
-          title="Know Me"
-          onPress={() => navigation.navigate("MainScreen")}
-        ></AppButton>
-      </View>
+
+      <AppButton
+        title="Know Me"
+        onPress={() => navigation.navigate("MainScreen")}
+        style={{ width: "30%", marginTop: 10, padding: 5 }}
+      ></AppButton>
     </Background>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, justifyContent: "center", alignItems: "center" },
+  container: { justifyContent: "center", alignItems: "center" },
 });
 
 export default WelcomeScreen;

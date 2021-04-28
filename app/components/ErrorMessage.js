@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet } from "react-native";
+import { Dimensions, StyleSheet } from "react-native";
 
 import AppText from "./AppText";
 
@@ -10,7 +10,11 @@ function ErrorMessage({ error, visible }) {
 }
 
 const styles = StyleSheet.create({
-  error: { color: "red" },
+  error: {
+    color: "red",
+    marginLeft: "5%",
+    fontSize: Dimensions.get("window").width * 0.03,
+  },
 });
 
 export default ErrorMessage;

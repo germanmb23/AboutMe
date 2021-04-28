@@ -10,13 +10,13 @@ export default {
     marginTop: 10,
   },
   buttonsContainer: {
-    flex: 1,
     flexDirection: "row",
     justifyContent: "space-evenly",
     alignItems: "center",
-    position: "absolute",
     width: "80%",
     height: "10%",
-    marginTop: Dimensions.get("window").height - 100,
+    position: "absolute",
+    bottom: Dimensions.get("window").height * 0.03,
+    justifySelf: "flex-end",
   },
 };
